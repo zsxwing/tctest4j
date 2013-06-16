@@ -1,0 +1,31 @@
+apply plugin: 'scala'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = JavaVersion.VERSION_1_5
+targetCompatibility = JavaVersion.VERSION_1_5
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+eclipse {
+  classpath {
+    downloadSources = true
+    downloadJavadoc = true
+  }
+}
+
+group = 'me.iamzsx'
+archivesBaseName = 'tctest4j'
+version = '1.0'
+description = 'Topcoder test for Java'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile fileTree (dir: 'lib/plugin', includes: ['*.jar'])
+  compile fileTree (dir: 'lib/topcoder', includes: ['*.jar'])
+  testCompile 'junit:junit:4.10'
+}
+
